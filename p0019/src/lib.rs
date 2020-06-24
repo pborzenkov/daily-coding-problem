@@ -6,7 +6,7 @@ pub fn p0019(costs: &[Vec<u32>]) -> Option<u32> {
     let mut cache = [costs[0].clone(), vec![0; costs[0].len()]];
     for i in 1..costs.len() {
         for (k, p) in costs[i].iter().enumerate() {
-            cache[i as usize % 2][k] = cache[(i - 1) as usize % 2]
+            cache[i % 2][k] = cache[(i - 1) % 2]
                 .iter()
                 .enumerate()
                 .filter(|&(ck, _)| ck != k)
